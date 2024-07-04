@@ -1,7 +1,7 @@
 use crate::AsyncRayonHandle;
+use futures::channel::oneshot;
 use rayon::ThreadPool;
 use std::panic::{catch_unwind, AssertUnwindSafe};
-use tokio::sync::oneshot;
 
 /// Extension trait that integrates Rayon's [`ThreadPool`](rayon::ThreadPool)
 /// with Tokio.

@@ -1,6 +1,7 @@
+use futures::channel::oneshot;
+
 use crate::AsyncRayonHandle;
 use std::panic::{catch_unwind, AssertUnwindSafe};
-use tokio::sync::oneshot;
 
 /// Asynchronous wrapper around Rayon's [`spawn`](rayon::spawn).
 ///

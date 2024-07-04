@@ -18,7 +18,7 @@
 //! # struct ExpensiveNft;
 //! # fn do_some_crypto_stuff() -> ExpensiveNft { ExpensiveNft }
 //! # tokio_test::block_on(async {
-//! let nft = tokio_rayon::spawn(|| {
+//! let nft = async_rayon::spawn(|| {
 //!   do_some_crypto_stuff()
 //! }).await;
 //!

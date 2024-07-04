@@ -1,9 +1,10 @@
+use futures::channel::oneshot::Receiver;
+
 use std::future::Future;
 use std::panic::resume_unwind;
 use std::pin::Pin;
 use std::task::{Context, Poll};
 use std::thread;
-use tokio::sync::oneshot::Receiver;
 
 /// Async handle for a blocking task running in a Rayon thread pool.
 ///
@@ -29,11 +30,12 @@ impl<T> Future for AsyncRayonHandle<T> {
 
 #[cfg(test)]
 mod tests {
+    use futures::channel::oneshot::channel;
+
     use super::*;
     use crate::test::init;
     use std::panic::catch_unwind;
     use std::thread;
-    use tokio::sync::oneshot::channel;
 
     #[tokio::test]
     #[should_panic(expected = "Task failed successfully")]
